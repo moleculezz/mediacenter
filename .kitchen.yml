@@ -1,6 +1,7 @@
 ---
 driver:
   name: vagrant
+  gui: true
 
 provisioner:
   name: chef_zero
