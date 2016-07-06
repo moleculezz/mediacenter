@@ -6,4 +6,6 @@ description 'Installs/Configures mediacenter'
 long_description 'Installs/Configures mediacenter'
 version '0.1.0'
 
+depends 'apt'
 depends 'kodi'
+depends 'ulimit'
