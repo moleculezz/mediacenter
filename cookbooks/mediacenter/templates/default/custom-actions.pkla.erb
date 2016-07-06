@@ -1,0 +1,13 @@
+[Actions for kodi user]
+Identity=unix-user:<%= @user %>
+Action=org.freedesktop.login1.*;org.freedesktop.udisks.*
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+
+[Untrusted Upgrade]
+Identity=unix-user:<%= @user %>
+Action=org.debian.apt.upgrade-packages;org.debian.apt.update-cache
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes

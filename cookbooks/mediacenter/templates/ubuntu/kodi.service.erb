@@ -1,0 +1,14 @@
+[Unit]
+Description = kodi-standalone using xinit
+After = systemd-user-sessions.service network.target sound.target network-online.target
+
+[Service]
+User = <%= @user %>
+Group = <%= @group %>
+Type = simple
+PAMName=login
+ExecStart = /usr/bin/xinit /usr/bin/dbus-launch --exit-with-session /usr/bin/openbox-session -- :0 -nolisten tcp vt7
+Restart = on-abort
+
+[Install]
+WantedBy = multi-user.target
