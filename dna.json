@@ -1,0 +1,10 @@
+{
+    "mediacenter": {
+        "user": "kodi",
+        "group": "kodi"
+    }
+
+    "run_list": [
+        "recipe[mediacenter::default]"
+    ]
+}
