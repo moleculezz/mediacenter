@@ -2,6 +2,11 @@
 driver:
   name: vagrant
   gui: true
+  customize:
+    audio: coreaudio
+    audiocontroller: ac97
+    vram: 32
+    memory: 1024
 
 provisioner:
   name: chef_zero
