@@ -24,4 +24,6 @@ suites:
   - name: default
     run_list:
       - recipe[mediacenter::default]
-    attributes:
+    attributes: {
+      mediacenter: { user: "kodi", group: "kodi"}
+    }
