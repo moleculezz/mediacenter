@@ -7,7 +7,7 @@ User=<%= @user %>
 Group=<%= @group %>
 
 Type=simple
-ExecStart=/usr/bin/mono /opt/NzbDrone/NzbDrone.exe -nobrowser -data=/home/kodi/.config/sonarr
+ExecStart=/usr/bin/mono /opt/NzbDrone/NzbDrone.exe -nobrowser -data=/home/<%= @user %>/.config/sonarr
 TimeoutStopSec=20
 KillMode=process
 Restart=on-failure
