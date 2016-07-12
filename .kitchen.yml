@@ -5,6 +5,7 @@ driver:
   network:
     - ["forwarded_port", {guest: 8081, host: 8081}]
     - ["forwarded_port", {guest: 8082, host: 8082}]
+    - ["forwarded_port", {guest: 8989, host: 8989}]
     - ["private_network", {ip: "192.168.2.2"}]
   customize:
     audio: coreaudio
@@ -27,7 +28,9 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[mediacenter::default]
+      - recipe[mediacenter::kodi]
+      - recipe[mediacenter::sabnzbdplus]
+      - recipe[mediacenter::sonarr]
     attributes: {
       mediacenter: {
         user: "kodi",
