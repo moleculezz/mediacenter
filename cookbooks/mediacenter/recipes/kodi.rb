@@ -6,6 +6,13 @@
 
 include_recipe 'mediacenter::default'
 
+directory "#{node['mediacenter']['directory']}/media" do
+  owner node['mediacenter']['user']
+  group node['mediacenter']['group']
+  mode '0755'
+  action :create
+end
+
 %w{python-software-properties software-properties-common
   xorg xserver-xorg-legacy alsa-utils lm-sensors libmpeg2-4
   vainfo dbus-x11 udisks2 openbox}.each do | pkg |
@@ -47,7 +54,7 @@ template "/etc/polkit-1/localauthority/50-local.d/custom-actions.pkla" do
 end
 
 # Should it be in /lib/systemd/system/kodi.service with symlink instead?
-template '/etc/systemd/system/kodi.service' do
+template '/lib/systemd/system/kodi.service' do
   source 'kodi.service.erb'
   owner 'root'
   group 'root'

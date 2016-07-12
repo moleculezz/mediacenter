@@ -26,5 +26,5 @@ template '/lib/systemd/system/sonarr.service' do
 end
 
 service 'sonarr' do
-  action [ :enable, :start ]
+  action [ :enable, :start, :restart ]
 end

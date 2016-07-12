@@ -6,6 +6,13 @@
 
 include_recipe 'mediacenter::default'
 
+directory "#{node['mediacenter']['directory']}/downloads" do
+  owner node['mediacenter']['user']
+  group node['mediacenter']['group']
+  mode '0755'
+  action :create
+end
+
 apt_repository 'sabnzbdplus' do
   uri 'ppa:jcfp/nobetas'
   distribution node['lsb']['codename']
