@@ -6,7 +6,7 @@
 
 include_recipe 'mediacenter::default'
 
-directory "/home/#{node['mediacenter']['user']}/.config/sonarr" do
+directory "#{node['mediacenter']['configs']}/sonarr" do
   owner node['mediacenter']['user']
   group node['mediacenter']['group']
   mode '0755'
@@ -29,7 +29,7 @@ template '/lib/systemd/system/sonarr.service' do
   owner 'root'
   group 'root'
   mode 0755
-  variables :user => node['mediacenter']['user'], :group => node['mediacenter']['group'], :config => "/home/#{node['mediacenter']['user']}/.config/sonarr"
+  variables :user => node['mediacenter']['user'], :group => node['mediacenter']['group'], :config => "#{node['mediacenter']['configs']}/sonarr"
 end
 
 service 'sonarr' do

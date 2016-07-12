@@ -13,7 +13,7 @@ directory "#{node['mediacenter']['directory']}/downloads" do
   action :create
 end
 
-directory "/home/#{node['mediacenter']['user']}/.config/sabnzbdplus" do
+directory "#{node['mediacenter']['configs']}/sabnzbdplus" do
   owner node['mediacenter']['user']
   group node['mediacenter']['group']
   mode '0755'
@@ -32,7 +32,7 @@ template '/etc/default/sabnzbdplus' do
   owner 'root'
   group 'root'
   mode 0644
-  variables :user => node['mediacenter']['user'], :port => node['mediacenter']['sabnzbdplus_port'], :config => "/home/#{node['mediacenter']['user']}/.config/sabnzbdplus"
+  variables :user => node['mediacenter']['user'], :port => node['mediacenter']['sabnzbdplus_port'], :config => "#{node['mediacenter']['configs']}/sabnzbdplus"
 end
 
 service 'sabnzbdplus' do
