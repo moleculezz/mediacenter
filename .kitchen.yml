@@ -2,6 +2,10 @@
 driver:
   name: vagrant
   gui: true
+  network:
+    - ["forwarded_port", {guest: 8081, host: 8081}]
+    - ["forwarded_port", {guest: 8082, host: 8082}]
+    - ["private_network", {ip: "192.168.2.2"}]
   customize:
     audio: coreaudio
     audiocontroller: ac97
@@ -25,5 +29,13 @@ suites:
     run_list:
       - recipe[mediacenter::default]
     attributes: {
-      mediacenter: { user: "kodi", group: "kodi"}
+      mediacenter: {
+        user: "kodi",
+        group: "kodi"
+      },
+      sabnzbd: {
+        user: "kodi",
+        group: "kodi",
+        listen_port: "8081"
+      }
     }
