@@ -5,6 +5,8 @@
     },
 
     "run_list":[
-        "recipe[mediacenter::default]"
+        "recipe[mediacenter::kodi]",
+        "recipe[mediacenter::sabnzbdplus]",
+        "recipe[mediacenter::sonarr]"
     ]
 }
