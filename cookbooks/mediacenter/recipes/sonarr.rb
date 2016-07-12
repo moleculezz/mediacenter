@@ -13,6 +13,13 @@ directory "#{node['mediacenter']['configs']}/sonarr" do
   action :create
 end
 
+directory "#{node['mediacenter']['directory']}/downloads/sonarr" do
+  owner node['mediacenter']['user']
+  group node['mediacenter']['group']
+  mode '0755'
+  action :create
+end
+
 apt_repository 'sonarr' do
   uri 'http://apt.sonarr.tv'
   components ['main']
