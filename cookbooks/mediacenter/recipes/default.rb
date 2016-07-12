@@ -4,6 +4,8 @@
 #
 # Copyright (c) 2016 G. Arends, All Rights Reserved.
 
+include_recipe 'apt'
+
 execute "Create Media Center User" do
   command "adduser --disabled-password --disabled-login --gecos '' #{node['mediacenter']['user']}"
   not_if "grep #{node['mediacenter']['user']} /etc/passwd", :user => node['mediacenter']['user']

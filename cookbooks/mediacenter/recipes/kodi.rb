@@ -4,7 +4,6 @@
 #
 # Copyright (c) 2016 G. Arends, All Rights Reserved.
 
-include_recipe 'apt'
 include_recipe 'mediacenter::default'
 
 %w{python-software-properties software-properties-common
