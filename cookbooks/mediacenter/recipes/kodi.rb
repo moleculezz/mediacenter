@@ -53,7 +53,6 @@ template "/etc/polkit-1/localauthority/50-local.d/custom-actions.pkla" do
   variables :user => node['mediacenter']['user']
 end
 
-# Should it be in /lib/systemd/system/kodi.service with symlink instead?
 template '/lib/systemd/system/kodi.service' do
   source 'kodi.service.erb'
   owner 'root'
@@ -72,8 +71,8 @@ ulimit_domain node['mediacenter']['user'] do
 end
 
 # Fake display-manager.service to not make plymouth or something else complain.
-link '/etc/systemd/system/display-manager.service' do
-  to '/etc/systemd/system/kodi.service'
+link '/lib/systemd/system/display-manager.service' do
+  to '/lib/systemd/system/kodi.service'
 end
 
 # Install Kodi
