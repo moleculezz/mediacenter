@@ -16,3 +16,6 @@ sudo chef-client -z -j dna.json
 # Kodi installation instructions
 
 http://forum.kodi.tv/showthread.php?tid=231955
+
+# CouchPotato
+CouchPotato requires NzbToMedia, which needs to be configured manually.
