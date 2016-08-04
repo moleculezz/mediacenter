@@ -5,6 +5,7 @@
 # Copyright (c) 2016 G. Arends, All Rights Reserved.
 
 include_recipe 'mediacenter::default'
+include_recipe 'mediacenter::sabnzbdplus'
 
 directory "#{node['mediacenter']['configs']}/sonarr" do
   owner node['mediacenter']['user']
@@ -14,6 +15,13 @@ directory "#{node['mediacenter']['configs']}/sonarr" do
 end
 
 directory "#{node['mediacenter']['directory']}/downloads/sonarr" do
+  owner node['mediacenter']['user']
+  group node['mediacenter']['group']
+  mode '0755'
+  action :create
+end
+
+directory "#{node['mediacenter']['directory']}/media/tv" do
   owner node['mediacenter']['user']
   group node['mediacenter']['group']
   mode '0755'

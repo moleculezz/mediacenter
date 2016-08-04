@@ -20,3 +20,17 @@ groups.each do | grp |
     append true
   end
 end
+
+directory "#{node['mediacenter']['configs']}" do
+  owner node['mediacenter']['user']
+  group node['mediacenter']['group']
+  mode '0755'
+  action :create
+end
+
+directory "#{node['mediacenter']['directory']}/media" do
+  owner node['mediacenter']['user']
+  group node['mediacenter']['group']
+  mode '0755'
+  action :create
+end

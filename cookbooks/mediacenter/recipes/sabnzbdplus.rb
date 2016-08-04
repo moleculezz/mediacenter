@@ -13,6 +13,13 @@ directory "#{node['mediacenter']['directory']}/downloads" do
   action :create
 end
 
+directory "#{node['mediacenter']['directory']}/downloads/complete" do
+  owner node['mediacenter']['user']
+  group node['mediacenter']['group']
+  mode '0755'
+  action :create
+end
+
 directory "#{node['mediacenter']['configs']}/sabnzbdplus" do
   owner node['mediacenter']['user']
   group node['mediacenter']['group']

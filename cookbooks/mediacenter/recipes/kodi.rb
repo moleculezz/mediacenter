@@ -6,13 +6,6 @@
 
 include_recipe 'mediacenter::default'
 
-directory "#{node['mediacenter']['directory']}/media" do
-  owner node['mediacenter']['user']
-  group node['mediacenter']['group']
-  mode '0755'
-  action :create
-end
-
 %w{python-software-properties software-properties-common
   xorg xserver-xorg-legacy alsa-utils lm-sensors libmpeg2-4
   vainfo dbus-x11 udisks2 openbox}.each do | pkg |
