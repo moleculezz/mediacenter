@@ -1,3 +1,5 @@
 source 'https://supermarket.chef.io'
 
 metadata
+
+cookbook "ulimit", "~> 0.5.0", git: "https://github.com/moleculezz/chef-ulimit.git"

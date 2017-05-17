@@ -7,6 +7,6 @@ long_description 'Installs/Configures mediacenter'
 version '0.1.0'
 
 depends 'apt', '~> 4.0'
+depends 'ulimit', '~> 0.5.0'
 depends 'kodi', '~> 0.1.4'
-depends 'ulimit', '~> 0.4.0'
 depends 'poise-python', '~> 1.4.0'
