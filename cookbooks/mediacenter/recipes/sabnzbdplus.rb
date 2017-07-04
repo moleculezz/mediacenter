@@ -32,7 +32,12 @@ apt_repository 'sabnzbdplus' do
   distribution node['lsb']['codename']
 end
 
-package 'sabnzbdplus'
+apt_repository 'sabnzbdplus-addons' do
+    uri 'ppa:jcfp/sab-addons'
+    distribution node['lsb']['codename']
+end
+
+package %w(sabnzbdplus python-sabyenc)
 
 template '/etc/default/sabnzbdplus' do
   source 'sabnzbdplus.default.erb'
