@@ -7,13 +7,8 @@
 include_recipe 'mediacenter::default'
 include_recipe 'mediacenter::sabnzbdplus'
 
-%w{git python-lxml python-pip}.each do | pkg |
+%w{git python}.each do | pkg |
   package pkg
-end
-
-python_package 'pyopenssl' do
-  action :install
-  options "--cache-dir '/tmp/.pipcache'"
 end
 
 directory "#{node['mediacenter']['directory']}/downloads/complete/movies" do
