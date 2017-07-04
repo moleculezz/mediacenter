@@ -46,7 +46,7 @@ template '/lib/systemd/system/couchpotato.service' do
   owner 'root'
   group 'root'
   mode 0755
-  variables :user => node['mediacenter']['user'], :group => node['mediacenter']['group'], :config => "#{node['mediacenter']['configs']}/sonarr"
+  variables :user => node['mediacenter']['user'], :group => node['mediacenter']['group']
 end
 
 service 'couchpotato' do
